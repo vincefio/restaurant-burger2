@@ -1,9 +1,27 @@
-<h1>Burger</h1>
+<h1>Burgers</h1>
 
-<ul>
+<ol>
 	{{#each burgers}}
 		<li>
 			{{this.burger_name}}
+
+			<form action="/{{this.id}}?_method=PUT" method="POST">
+				<input type="hidden" name="devoured" value="true">
+				<input type="submit" value="Devour It!">
+			</form>
+
 		</li>
 	{{/each}}
-</ul>
+</ol>
+
+<h2>Add a Burger</h2>
+
+<form action="/" method="POST">
+	<div>
+		<textarea rows="4" cols="20"></textarea>
+	</div>
+
+	<div>
+		<input type="submit" value="Add Burger" name="burger_name">
+	</div>
+</form>

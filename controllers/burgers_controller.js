@@ -1,5 +1,5 @@
 var express = require('express');
-var app = express()
+// var app = express()
 var router = express.Router();
 
 //import the burger model to use database functions
@@ -16,4 +16,13 @@ router.get("/", function(req, res){
 	})
 })
 
+//post route to create a burger
+router.post("/", function(req, res){
+	burger.insert(function(data){
+		(req.body.burger_name, function(result){
+			console.log(result)
+			res.redirect("/")
+		})
+	})
+})
 module.exports = router;

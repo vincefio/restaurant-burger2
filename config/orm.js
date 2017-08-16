@@ -12,6 +12,15 @@ var orm = {
 		    }
 		    cb(result);
 		})
+	},
+	insertOne: function(cb, name){
+		var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?, false)";
+		connection.query(queryString, [name], function(err, result){
+			if (err) {
+		        throw err;
+		    }
+		    cb(result);
+		})
 	}
 
 };
